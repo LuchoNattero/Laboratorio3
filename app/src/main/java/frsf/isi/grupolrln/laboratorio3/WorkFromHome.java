@@ -1,8 +1,8 @@
 package frsf.isi.grupolrln.laboratorio3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -10,12 +10,13 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class WorkFromHome extends AppCompatActivity {
 
@@ -36,8 +37,10 @@ public class WorkFromHome extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+               /* Intent intent = new Intent(this,);
+                startActivityForResult(intent,1);*/
             }
         });
 
@@ -55,16 +58,23 @@ public class WorkFromHome extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
+/*    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+    }*/
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-
+/*        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        Trabajo trabajo = adap.getItem(info.position);*/
+        Toast toast = Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT);
+        toast.show();
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+
+        inflater.inflate(R.menu.menu_opciones, menu);
     }
 
     @Override
@@ -73,12 +83,24 @@ public class WorkFromHome extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        Toast toast;
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+/*        if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
+        switch (id){
 
+            case R.id.item_borrar:
+
+                toast = Toast.makeText(getApplicationContext(), "Se eliminó ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case R.id.item_postularse:
+
+                toast = Toast.makeText(getApplicationContext(), "Se postulo ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
