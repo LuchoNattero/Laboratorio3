@@ -1,5 +1,6 @@
 package frsf.isi.grupolrln.laboratorio3;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -39,8 +40,8 @@ public class WorkFromHome extends AppCompatActivity {
             public void onClick(View view) {
                /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-               /* Intent intent = new Intent(this,);
-                startActivityForResult(intent,1);*/
+                Intent intent = new Intent(getApplicationContext(),alta_oferta.class);
+                startActivityForResult(intent,1);
             }
         });
 

@@ -14,13 +14,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="20dp"
-            android:text="Ingrese profecion"/>
-        <EditText
-            android:layout_width="300dp"
+            android:text="Ingrese Categoria"/>
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="20dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:id="@+id/et_categoria"/>
         <TextView
             android:layout_width="wrap_content"
@@ -108,18 +108,24 @@
             android:layout_marginTop="400dp"
             android:layout_marginLeft="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Moneda"/>
             <Spinner
                 android:id="@+id/sp_moneda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
 
                 >
             </Spinner>
             <CheckBox
+                android:id="@+id/ck_ingles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="En ingles"
-                android:layout_marginLeft="200dp"
+                android:text="Conocimiendo en ingles"
+                android:layout_marginLeft="180dp"
                 android:clickable="true"/>
 
         </RelativeLayout>
