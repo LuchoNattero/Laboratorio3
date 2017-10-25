@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class WorkFromHome extends AppCompatActivity {
+public class WorkFromHome extends AppCompatActivity implements View.OnClickListener {
 
     private ListView lv_lista_trabajo;
     private Adaptador adap;
@@ -46,16 +46,25 @@ public class WorkFromHome extends AppCompatActivity {
             }
         });
 
+/*
+        findViewById(R.id.item_postularse).setOnClickListener(this);
+        findViewById(R.id.item_borrar).setOnClickListener(this);
+*/
+
+
+
         lv_lista_trabajo = (ListView)findViewById(R.id.lv_primera_lista);
         List<Trabajo> listaTrabajos = new LinkedList<>(Arrays.asList(Trabajo.TRABAJOS_MOCK));
         adap = new Adaptador(this, listaTrabajos);
         lv_lista_trabajo.setAdapter(adap);
         registerForContextMenu(lv_lista_trabajo);
+        //registerForContextMenu();
 
 
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,8 +79,6 @@ public class WorkFromHome extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-/*        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        Trabajo trabajo = adap.getItem(info.position);*/
         Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT).show();
 
         MenuInflater inflater = getMenuInflater();
@@ -79,9 +86,8 @@ public class WorkFromHome extends AppCompatActivity {
         inflater.inflate(R.menu.menu_opciones, menu);
 
     }
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
@@ -96,6 +102,19 @@ public class WorkFromHome extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Se postulo ", Toast.LENGTH_SHORT).show();
                 break;
         }
+
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -122,5 +141,10 @@ public class WorkFromHome extends AppCompatActivity {
 
             }
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

@@ -121,4 +121,31 @@ public class alta_oferta extends AppCompatActivity implements View.OnClickListen
 
 
     }
+
+
+
+/*    @Override   //para guardar y cargar los datos al girar
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(clave_texto_pedido, texto_pedidos.getText().toString());
+        savedInstanceState.putBoolean(clave_pedido_confirmado,pedido_confirmado);
+        savedInstanceState.putBoolean(clave_bebida,bebida);
+        savedInstanceState.putBoolean(clave_postre,postre);
+        savedInstanceState.putBoolean(clave_principal,principal);
+
+        savedInstanceState.putDouble(clave_total,total);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        texto_pedidos.setText(savedInstanceState.getString(clave_texto_pedido));
+        // pedido_confirmado = savedInstanceState.getBoolean(clave_pedido_confirmado);
+        bebida = savedInstanceState.getBoolean(clave_bebida);
+        postre = savedInstanceState.getBoolean(clave_postre);
+        principal = savedInstanceState.getBoolean(clave_principal);
+        total = savedInstanceState.getDouble(clave_total);
+
+
+    }*/
 }
