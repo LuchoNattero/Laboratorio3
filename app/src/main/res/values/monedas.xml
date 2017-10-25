@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tipo_moneda">
+        <item>US$</item>
+        <item>Euro</item>
+        <item>AR$</item>
+        <item>Libra</item>
+        <item>R$</item>
+    </string-array>
+</resources>
