@@ -8,12 +8,16 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class alta_oferta extends AppCompatActivity implements View.OnClickListener{
 
@@ -48,7 +52,7 @@ public class alta_oferta extends AppCompatActivity implements View.OnClickListen
         sp_cantegoria = (Spinner) findViewById(R.id.sp_categoria);
         ArrayAdapter<String> adp_categoria = new ArrayAdapter(this,android.R.layout.simple_spinner_item, (Categoria.CATEGORIAS_MOCK)); //no muestra bien
         adp_array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_cantegoria.setAdapter(adp_categoria);
+        sp_cantegoria.setAdapter((SpinnerAdapter) adp_categoria);
 
 
 

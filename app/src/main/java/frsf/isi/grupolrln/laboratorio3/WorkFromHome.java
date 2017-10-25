@@ -60,7 +60,7 @@ public class WorkFromHome extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 /*    @Override
@@ -73,9 +73,11 @@ public class WorkFromHome extends AppCompatActivity {
 /*        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         Trabajo trabajo = adap.getItem(info.position);*/
         Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT).show();
-        MenuInflater inflater = getMenuInflater();
 
+        MenuInflater inflater = getMenuInflater();
+        menu.setHeaderTitle("Accion");
         inflater.inflate(R.menu.menu_opciones, menu);
+
     }
 
     @Override
