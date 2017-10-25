@@ -1,5 +1,7 @@
 package frsf.isi.grupolrln.laboratorio3;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,7 +68,7 @@ public class alta_oferta extends AppCompatActivity implements View.OnClickListen
                     oferta.setError("Debe completar el campo");
                     error = true;
                 }
-                if(paga_hora.getText().toString().isEmpty())
+/*                if(paga_hora.getText().toString().isEmpty())
                 {
                     paga_hora.setError("Debe completar el campo");
                     error = true;
@@ -94,10 +96,23 @@ public class alta_oferta extends AppCompatActivity implements View.OnClickListen
 
                     Toast toast = Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT);
                     toast.show();
+                }*/
+
+                if(!error)
+                {
+                    String oferta_text = oferta.getText().toString();
+                    Intent intent = getIntent();
+                    intent.putExtra("nueva_oferta",oferta_text);
+                    setResult(RESULT_OK,intent);
+                    finish();
                 }
                 break;
 
+            case R.id.bt_cancelar:
 
+                setResult(RESULT_CANCELED);
+                finish();
+                break;
         }
 
 

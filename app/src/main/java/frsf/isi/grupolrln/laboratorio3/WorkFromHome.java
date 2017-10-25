@@ -1,6 +1,7 @@
 package frsf.isi.grupolrln.laboratorio3;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -71,8 +72,7 @@ public class WorkFromHome extends AppCompatActivity {
 
 /*        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         Trabajo trabajo = adap.getItem(info.position);*/
-        Toast toast = Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT);
-        toast.show();
+        Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT).show();
         MenuInflater inflater = getMenuInflater();
 
         inflater.inflate(R.menu.menu_opciones, menu);
@@ -80,28 +80,42 @@ public class WorkFromHome extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
-        Toast toast;
-        //noinspection SimplifiableIfStatement
-/*        if (id == R.id.action_settings) {
-            return true;
-        }*/
+
         switch (id){
 
             case R.id.item_borrar:
 
-                toast = Toast.makeText(getApplicationContext(), "Se eliminó ", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "Se eliminó ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_postularse:
 
-                toast = Toast.makeText(getApplicationContext(), "Se postulo ", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "Se postulo ", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == RESULT_OK){
+
+            String nueva_oferta = data.getExtras().getString("nueva_oferta");
+            int id_trabajo = adap.getCount();
+            Trabajo nuevo_trabajo = new Trabajo(id_trabajo,nueva_oferta);
+            adap.addItem(nuevo_trabajo);
+            adap.notifyDataSetChanged();
+
+            Toast.makeText(getApplicationContext(),"Se agrego correctamente la oferta",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(requestCode == RESULT_CANCELED){
+
+            Toast.makeText(getApplicationContext(),"Se cancelo el agregado de oferta",Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 }

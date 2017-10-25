@@ -53,7 +53,7 @@ public class Adaptador extends BaseAdapter{
             select.setEnabled(false);
         }
     }
-
+    public Boolean addItem(Trabajo trabajo) { return this.lista_trabajadores.add(trabajo);}
     @Override
     public int getCount() {
         return lista_trabajadores.size();
@@ -87,6 +87,7 @@ public class Adaptador extends BaseAdapter{
         Trabajo trabajo = getItem(i);
 
         holder.profesion.setText(trabajo.getCategoria().getDescripcion());
+        holder.proyecto.setText(trabajo.getDescripcion());
 
         holder.select.setChecked(trabajo.getRequiereIngles());
 
