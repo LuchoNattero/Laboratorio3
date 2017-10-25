@@ -41,7 +41,7 @@ public class WorkFromHome extends AppCompatActivity {
             public void onClick(View view) {
                /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-                Intent intent = new Intent(getApplicationContext(),alta_oferta.class);
+                Intent intent = new Intent(WorkFromHome.this,alta_oferta.class);
                 startActivityForResult(intent,1);
             }
         });
@@ -97,25 +97,28 @@ public class WorkFromHome extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RESULT_OK){
 
-            String nueva_oferta = data.getExtras().getString("nueva_oferta");
-            int id_trabajo = adap.getCount();
-            Trabajo nuevo_trabajo = new Trabajo(id_trabajo,nueva_oferta);
-            adap.addItem(nuevo_trabajo);
-            adap.notifyDataSetChanged();
+        if(requestCode == 1) {
 
-            Toast.makeText(getApplicationContext(),"Se agrego correctamente la oferta",Toast.LENGTH_SHORT).show();
+            if (resultCode == RESULT_OK) {
 
+                String nueva_oferta = data.getExtras().getString("nueva_oferta");
+                int id_trabajo = adap.getCount();
+                Trabajo nuevo_trabajo = new Trabajo(id_trabajo, nueva_oferta);
+                adap.addItem(nuevo_trabajo);
+                adap.notifyDataSetChanged();
+
+                Toast.makeText(getApplicationContext(), "Se agrego correctamente la oferta", Toast.LENGTH_SHORT).show();
+
+            } else if (resultCode == RESULT_CANCELED) {
+
+                Toast.makeText(getApplicationContext(), "Se cancelo el agregado de oferta", Toast.LENGTH_SHORT).show();
+
+            }
         }
-        else if(requestCode == RESULT_CANCELED){
-
-            Toast.makeText(getApplicationContext(),"Se cancelo el agregado de oferta",Toast.LENGTH_SHORT).show();
-
-        }
-
     }
 }
