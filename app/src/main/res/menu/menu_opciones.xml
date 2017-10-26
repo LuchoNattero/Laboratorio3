@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <Item
+    <item
         android:id="@+id/item_postularse"
         android:title="Postularse a la oferta"
         />
-    <Item
+    <item
         android:id="@+id/item_borrar"
         android:title="Descartar la oferta"
         />

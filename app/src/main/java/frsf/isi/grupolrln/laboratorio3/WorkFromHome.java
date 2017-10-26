@@ -39,51 +39,33 @@ public class WorkFromHome extends AppCompatActivity implements View.OnClickListe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+
                 Intent intent = new Intent(WorkFromHome.this,alta_oferta.class);
                 startActivityForResult(intent,1);
             }
         });
-
-/*
-        findViewById(R.id.item_postularse).setOnClickListener(this);
-        findViewById(R.id.item_borrar).setOnClickListener(this);
-*/
-
-
 
         lv_lista_trabajo = (ListView)findViewById(R.id.lv_primera_lista);
         List<Trabajo> listaTrabajos = new LinkedList<>(Arrays.asList(Trabajo.TRABAJOS_MOCK));
         adap = new Adaptador(this, listaTrabajos);
         lv_lista_trabajo.setAdapter(adap);
         registerForContextMenu(lv_lista_trabajo);
-        //registerForContextMenu();
-
-
-
 
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
-/*    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-    }*/
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        Toast.makeText(getApplicationContext(), "Se hizo algo ", Toast.LENGTH_SHORT).show();
-
-        MenuInflater inflater = getMenuInflater();
         menu.setHeaderTitle("Accion");
-        inflater.inflate(R.menu.menu_opciones, menu);
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
 
     }
     @Override
