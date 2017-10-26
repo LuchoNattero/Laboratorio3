@@ -53,6 +53,8 @@ public class Adaptador extends BaseAdapter{
             select.setEnabled(false);
         }
     }
+    public void removerTrabajo(int posicion){ this.lista_trabajadores.remove(posicion);}
+
     public Boolean addItem(Trabajo trabajo) { return this.lista_trabajadores.add(trabajo);}
     @Override
     public int getCount() {

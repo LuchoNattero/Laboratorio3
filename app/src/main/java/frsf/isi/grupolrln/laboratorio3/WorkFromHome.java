@@ -71,17 +71,20 @@ public class WorkFromHome extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
+        AdapterView.AdapterContextMenuInfo contextMenuInfo=(AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         int id = item.getItemId();
 
         switch (id){
 
             case R.id.item_borrar:
 
-                Toast.makeText(getApplicationContext(), "Se eliminó ", Toast.LENGTH_SHORT).show();
+                adap.removerTrabajo(contextMenuInfo.position);
+                adap.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(), "Se eliminó la oferta", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_postularse:
 
-                Toast.makeText(getApplicationContext(), "Se postulo ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Se postulo a la oferta", Toast.LENGTH_SHORT).show();
                 break;
         }
 
